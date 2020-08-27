@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    image: postgres:12.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: innihald
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_DB: innihald
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9080:8080

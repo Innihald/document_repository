@@ -1,9 +1,18 @@
 package de.drentech.innihald.documentrepository.domain.model;
 
+import javax.persistence.*;
 import java.nio.file.Path;
 
+@Entity
+@Table(name = "physical_file")
 public class PhysicalFile {
-    private Path path;
+    @Id @GeneratedValue
+    public Long id;
 
-    private String filename;
+    // public Path path;
+
+    public String filename;
+
+    @OneToOne(mappedBy = "file")
+    public Document document;
 }

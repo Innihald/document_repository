@@ -1,13 +1,24 @@
 package de.drentech.innihald.documentrepository.domain.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "document")
 public class Document {
-    private String title;
+    @Id @GeneratedValue
+    public Long id;
 
-    private String description;
+    public String title;
 
-    private PhysicalFile file;
+    public String description;
 
-    private OcrData ocr;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "file_id", referencedColumnName = "id")
+    public PhysicalFile file;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ocr_id", referencedColumnName = "id")
+    public OcrData ocr;
 
     public Document(String title, String description) {
         this(title, description, null, null);
@@ -18,5 +29,9 @@ public class Document {
         this.description = description;
         this.file = file;
         this.ocr = ocr;
+    }
+
+    public Document() {
+
     }
 }
