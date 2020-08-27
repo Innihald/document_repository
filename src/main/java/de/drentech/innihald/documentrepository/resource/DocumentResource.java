@@ -4,10 +4,8 @@ import de.drentech.innihald.documentrepository.domain.model.Document;
 import de.drentech.innihald.documentrepository.service.DocumentService;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -22,5 +20,11 @@ public class DocumentResource {
     @GET
     public List<Document> getAllDocuments() {
         return this.documentService.getAllDocuments();
+    }
+
+    @POST
+    @Transactional
+    public Document createDocument(Document document) {
+        return this.documentService.createDocument(document);
     }
 }

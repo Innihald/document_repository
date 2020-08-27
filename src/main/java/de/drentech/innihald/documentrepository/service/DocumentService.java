@@ -21,4 +21,10 @@ public class DocumentService {
     public Document createDocumentWithFile(Document document, File file) {
         return document;
     }
+
+    public Document createDocument(Document document) {
+        this.documentRepository.persist(document);
+
+        return document;
+    }
 }
