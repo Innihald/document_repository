@@ -9,7 +9,7 @@ public class PhysicalFile {
     @Id @GeneratedValue
     public Long id;
 
-    // public Path path;
+    public String path;
 
     public String filename;
 

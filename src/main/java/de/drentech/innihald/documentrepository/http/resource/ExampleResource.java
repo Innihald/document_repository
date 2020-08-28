@@ -1,4 +1,4 @@
-package de.drentech.innihald.documentrepository.resource;
+package de.drentech.innihald.documentrepository.http.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -18,11 +18,15 @@ public class DocumentService {
         return this.documentRepository.findAll().list();
     }
 
+    public Document getDocumentById(Long id) {
+        return this.documentRepository.findById(id);
+    }
+
     public Document createDocumentWithFile(Document document, File file) {
         return document;
     }
 
-    public Document createDocument(Document document) {
+    public Document persistDocument(Document document) {
         this.documentRepository.persist(document);
 
         return document;

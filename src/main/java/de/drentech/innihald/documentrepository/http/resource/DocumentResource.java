@@ -1,4 +1,4 @@
-package de.drentech.innihald.documentrepository.resource;
+package de.drentech.innihald.documentrepository.http.resource;
 
 import de.drentech.innihald.documentrepository.domain.model.Document;
 import de.drentech.innihald.documentrepository.service.DocumentService;
@@ -25,6 +25,6 @@ public class DocumentResource {
     @POST
     @Transactional
     public Document createDocument(Document document) {
-        return this.documentService.createDocument(document);
+        return this.documentService.persistDocument(document);
     }
 }
