@@ -1,7 +1,9 @@
 package de.drentech.innihald.documentrepository.domain.model;
 
+import javax.json.bind.annotation.JsonbTransient;
+import javax.json.bind.annotation.JsonbVisibility;
 import javax.persistence.*;
-import java.nio.file.Path;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "physical_file")
@@ -14,5 +16,10 @@ public class PhysicalFile {
     public String filename;
 
     @OneToOne(mappedBy = "file")
+    @XmlTransient
+    @JsonbTransient
     public Document document;
+
+    public PhysicalFile() {
+    }
 }
