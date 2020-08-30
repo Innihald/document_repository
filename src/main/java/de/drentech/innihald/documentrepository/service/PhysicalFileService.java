@@ -9,6 +9,9 @@ import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @ApplicationScoped
 public class PhysicalFileService {
@@ -23,7 +26,12 @@ public class PhysicalFileService {
     public PhysicalFile createFile(File file, String filename) throws IOException {
 
         // move file to folder
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+        filename = now.format(formatter) + "_" + UUID.randomUUID() + "_" + filename;
         Path newFile = Paths.get(fileRepoPath + "/" + filename);
+
         Files.copy(Paths.get(file.getPath()), newFile, StandardCopyOption.REPLACE_EXISTING);
 
         // create object
