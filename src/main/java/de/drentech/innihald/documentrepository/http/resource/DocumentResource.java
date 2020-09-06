@@ -6,6 +6,7 @@ import de.drentech.innihald.documentrepository.service.DocumentService;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.inject.Inject;
+import javax.transaction.SystemException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
@@ -26,13 +27,13 @@ public class DocumentResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Document createDocument(Document document) {
+    public Document createDocument(Document document) throws SystemException {
         return this.documentService.persistDocument(document);
     }
 
     @POST
     @Path("/upload")
-    public Document createDocumentAndUploadFile(@MultipartForm DocumentUploadRequest upload) throws IOException {
+    public Document createDocumentAndUploadFile(@MultipartForm DocumentUploadRequest upload) throws IOException, SystemException {
         Document document = new Document();
 
         document.title = upload.title;

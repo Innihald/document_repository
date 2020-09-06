@@ -8,6 +8,7 @@ import de.drentech.innihald.documentrepository.service.PhysicalFileService;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.inject.Inject;
+import javax.transaction.SystemException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

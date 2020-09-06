@@ -3,10 +3,12 @@ package de.drentech.innihald.documentrepository.service;
 import de.drentech.innihald.documentrepository.domain.model.Document;
 import de.drentech.innihald.documentrepository.domain.model.PhysicalFile;
 import de.drentech.innihald.documentrepository.domain.repository.DocumentRepository;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
+import javax.transaction.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +21,9 @@ public class DocumentService {
 
     @Inject
     PhysicalFileService physicalFileService;
+
+    @Inject @Channel("document-create")
+    Emitter<Long> documentEmitter;
 
     public List<Document> getAllDocuments() {
         return this.documentRepository.findAll().list();
@@ -38,9 +43,9 @@ public class DocumentService {
 
     @Transactional
     public Document persistDocument(Document document) {
-        this.documentRepository.persist(document);
+        this.documentRepository.persistAndFlush(document);
 
-        //TODO: send message to queue that new document was created
+        this.documentEmitter.send(document.id);
 
         return document;
     }

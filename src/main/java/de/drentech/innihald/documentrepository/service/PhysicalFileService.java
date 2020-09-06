@@ -40,8 +40,13 @@ public class PhysicalFileService {
         physicalFile.path = newFile.toAbsolutePath().toString();
 
         // save object
-        this.physicalFileRepository.persist(physicalFile);
+        this.physicalFileRepository.persistAndFlush(physicalFile);
 
         return physicalFile;
+    }
+
+    public PhysicalFile getFileById(Long id) {
+
+        return this.physicalFileRepository.findById(id);
     }
 }
