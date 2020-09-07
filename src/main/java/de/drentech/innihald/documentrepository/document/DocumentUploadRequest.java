@@ -1,6 +1,4 @@
-package de.drentech.innihald.documentrepository.http.request;
-
-import de.drentech.innihald.documentrepository.domain.model.Document;
+package de.drentech.innihald.documentrepository.document;
 
 import javax.ws.rs.FormParam;
 import java.io.File;

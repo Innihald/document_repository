@@ -1,14 +1,10 @@
-package de.drentech.innihald.documentrepository.http.resource;
+package de.drentech.innihald.documentrepository.physicalfile;
 
-import de.drentech.innihald.documentrepository.domain.model.Document;
-import de.drentech.innihald.documentrepository.domain.model.PhysicalFile;
-import de.drentech.innihald.documentrepository.http.request.FileUploadRequest;
-import de.drentech.innihald.documentrepository.service.DocumentService;
-import de.drentech.innihald.documentrepository.service.PhysicalFileService;
+import de.drentech.innihald.documentrepository.document.Document;
+import de.drentech.innihald.documentrepository.document.DocumentService;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.inject.Inject;
-import javax.transaction.SystemException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

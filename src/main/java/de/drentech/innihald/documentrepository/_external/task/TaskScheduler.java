@@ -1,4 +1,4 @@
-package de.drentech.innihald.documentrepository.schedular;
+package de.drentech.innihald.documentrepository._external.task;
 
 import io.quarkus.scheduler.Scheduled;
 import javax.enterprise.context.ApplicationScoped;

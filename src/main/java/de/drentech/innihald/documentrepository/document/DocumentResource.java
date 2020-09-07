@@ -1,8 +1,5 @@
-package de.drentech.innihald.documentrepository.http.resource;
+package de.drentech.innihald.documentrepository.document;
 
-import de.drentech.innihald.documentrepository.domain.model.Document;
-import de.drentech.innihald.documentrepository.http.request.DocumentUploadRequest;
-import de.drentech.innihald.documentrepository.service.DocumentService;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.inject.Inject;

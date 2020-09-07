@@ -1,4 +1,4 @@
-package de.drentech.innihald.documentrepository.http.request;
+package de.drentech.innihald.documentrepository.physicalfile;
 
 import javax.ws.rs.FormParam;
 import java.io.File;

@@ -1,4 +1,7 @@
-package de.drentech.innihald.documentrepository.domain.model;
+package de.drentech.innihald.documentrepository.document;
+
+import de.drentech.innihald.documentrepository.ocr.OcrData;
+import de.drentech.innihald.documentrepository.physicalfile.PhysicalFile;
 
 import javax.persistence.*;
 

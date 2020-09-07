@@ -1,4 +1,4 @@
-package de.drentech.innihald.documentrepository.http.client.model;
+package de.drentech.innihald.documentrepository._external.task;
 
 import javax.validation.Payload;
 import java.util.ArrayList;

@@ -1,6 +1,5 @@
-package de.drentech.innihald.documentrepository.http.client;
+package de.drentech.innihald.documentrepository._external.task;
 
-import de.drentech.innihald.documentrepository.http.client.model.Task;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.ws.rs.Consumes;

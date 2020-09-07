@@ -1,7 +1,7 @@
-package de.drentech.innihald.documentrepository.service;
+package de.drentech.innihald.documentrepository.physicalfile;
 
-import de.drentech.innihald.documentrepository.domain.model.PhysicalFile;
-import de.drentech.innihald.documentrepository.domain.repository.PhysicalFileRepository;
+import de.drentech.innihald.documentrepository.physicalfile.PhysicalFile;
+import de.drentech.innihald.documentrepository.physicalfile.PhysicalFileRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
