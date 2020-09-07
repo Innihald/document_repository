@@ -71,6 +71,11 @@
             <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-scheduler</artifactId>
+        </dependency>
+
         <!-- data dependencies -->
         <!-- Hibernate ORM specific dependencies -->
         <dependency>
