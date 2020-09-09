@@ -9,7 +9,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "physical_file")
 public class PhysicalFile {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
     public String path;
