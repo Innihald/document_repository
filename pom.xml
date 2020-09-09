@@ -83,6 +83,10 @@
         </dependency>
 
         <!-- data dependencies -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-flyway</artifactId>
+        </dependency>
         <!-- Hibernate ORM specific dependencies -->
         <dependency>
             <groupId>io.quarkus</groupId>

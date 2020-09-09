@@ -8,7 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "document")
 public class Document {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
     public String title;

@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ocr_data")
 public class OcrData {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
     @Type(type = "text")
