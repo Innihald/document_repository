@@ -1,7 +1,9 @@
 package de.drentech.innihald.documentrepository.document;
 
-import de.drentech.innihald.documentrepository._external.task.Task;
-import de.drentech.innihald.documentrepository._external.task.TaskClient;
+import de.drentech.innihald.documentrepository.external.task.Task;
+import de.drentech.innihald.documentrepository.external.task.TaskClient;
+import de.drentech.innihald.documentrepository.ocr.OcrData;
+import de.drentech.innihald.documentrepository.ocr.OcrService;
 import de.drentech.innihald.documentrepository.physicalfile.PhysicalFile;
 import de.drentech.innihald.documentrepository.physicalfile.PhysicalFileService;
 import org.eclipse.microprofile.reactive.messaging.Channel;
@@ -14,6 +16,8 @@ import javax.inject.Inject;
 import javax.transaction.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @ApplicationScoped
@@ -24,6 +28,9 @@ public class DocumentService {
 
     @Inject
     PhysicalFileService physicalFileService;
+
+    @Inject
+    OcrService ocrService;
 
     @Inject @Channel("document-create")
     Emitter<Long> documentEmitter;
@@ -55,6 +62,23 @@ public class DocumentService {
         this.documentEmitter.send(document.id);
 
         return document;
+    }
+
+    @Transactional
+    public void createOcrForDocument(Long documentId) {
+        Document document = this.documentRepository.findById(documentId);
+
+        Path path = Paths.get(document.file.path);
+
+        try {
+            document.ocr = this.ocrService.createOcrForFile(path);
+            this.documentRepository.update("ocr_id = ?1 where id = ?2", document.ocr.id, document.id);
+
+            System.out.println(document.ocr.id);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Incoming("document-create")

@@ -1,8 +1,6 @@
-package de.drentech.innihald.documentrepository._external.task;
+package de.drentech.innihald.documentrepository.external.task;
 
-import javax.validation.Payload;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Task {
