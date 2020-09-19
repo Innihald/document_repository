@@ -34,3 +34,6 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 release.properties
+
+# frontend
+src/main/resources/META-INF/resources/assets

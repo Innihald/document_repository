@@ -1,0 +1,23 @@
+{
+  "name": "document_repository",
+  "version": "0.0.0",
+  "description": "Frontend of the document-repository of Innihald",
+  "main": "index.js",
+  "author": "Marian Hahne",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.31.0",
+    "postcss-loader": "^3.0.0",
+    "webpack-notifier": "^1.6.0"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "dependencies": {
+    "tailwindcss": "^1.8.10"
+  }
+}
